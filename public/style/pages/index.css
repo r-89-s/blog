@@ -1,0 +1,38 @@
+.main {
+    padding: 20px 20px;
+    height: 70vh;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.main-content {
+    width: 80%;
+}
+
+.categories {
+    width: calc(20% - 24px);
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 43px 30px;
+}
+
+.categories h3 {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 16px;
+    line-height: 46px;
+    font-weight: 500;
+    border-bottom: 1px dashed #E7E7E7;
+    transition: 0.3s;
+}
+
+.categories a:hover {
+    background-color: lightgray;
+}
