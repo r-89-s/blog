@@ -9,15 +9,21 @@
     <div class="container">
         <div class="main">
             <form action="" class="form">
-                <h2>Вход</h2>
+                <h2>Регистрация</h2>
                 <fieldset class="fieldset">
                     <input type="email" placeholder="Введите email" name="email">
                 </fieldset>
                 <fieldset class="fieldset">
+                    <input type="text" placeholder="Введите полное имя" name="full_name">
+                </fieldset>
+                <fieldset class="fieldset">
                     <input type="password" placeholder="Введите пароль" name="password">
                 </fieldset>
-                <button type="submit">Войти</button>
-                <p>У вас нету аккаунта? <a href="/register">Зарегистрироваться</a></p>
+                <fieldset class="fieldset">
+                    <input type="password" placeholder="Подтвердите пароль" name="re-password">
+                </fieldset>
+                <button type="submit">Зарегистрироваться</button>
+                <p>У вас уже есть аккаунт? <a href="/login">Войти</a></p>
             </form>
         </div>
     </div>

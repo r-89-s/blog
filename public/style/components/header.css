@@ -16,6 +16,10 @@ header {
     color: #00A2DC;
 }
 
+.head-logo a{
+    text-decoration: none;
+}
+
 .head-menu {
     display: flex;
     align-items: center;
