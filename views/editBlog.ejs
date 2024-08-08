@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+    <div class="container">
+        <div class="main">
+            <div class="main-content main-content-new-blog">
+                <form action="" class="form-new-blog">
+                    <h2>Редактировать блог</h2>
+                    <fieldset class="fieldset-new-blog">
+                        <input type="text" placeholder="Введите заголовок блога" name="title">
+                    </fieldset>
+                    <fieldset class="fieldset-new-blog">
+                        <select name="category" id="">
+                            <option value="">Прогнозы в IT</option>
+                            <option value="">Веб-разработка</option>
+                            <option value="">Мобильная разработка</option>
+                            <option value="">Фриланс</option>
+                            <option value="">Алгоритмы</option>
+                            <option value="">Тестирование IT систем</option>
+                            <option value="">Разработка игр</option>
+                            <option value="">Дизайн и юзабилити</option>
+                            <option value="">Искуственный интелект</option>
+                            <option value="">Машинное обучение</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="fieldset-new-blog">
+                        <label class="input-file">
+                            <input type="file" name="blogImg" placeholder="Выберите картинку">
+                        </label>
+                    </fieldset>
+                    <fieldset class="fieldset-new-blog">
+                        <input type="text" placeholder="Введите описание блога" name="description">
+                    </fieldset>
+                    <button type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
