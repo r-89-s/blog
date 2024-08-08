@@ -22,6 +22,10 @@ app.get('/profile', (req, res) => {
     res.render("profile")
 })
 
+app.get('/admin', (req, res) => {
+    res.render("adminProfile")
+})
+
 const PORT = 8000
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`)
