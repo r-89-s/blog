@@ -1,9 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const {signUp} = require('./controller')
 
-router.post('/api/signup', () => {
-    console.log(req.body)
-    resizeBy.send('ok')
-})
+router.post('/api/signup', signUp)
 
 module.exports = router
