@@ -16,16 +16,13 @@
                     </fieldset>
                     <fieldset class="fieldset-new-blog">
                         <select name="category" id="">
-                            <option value="">Прогнозы в IT</option>
-                            <option value="">Веб-разработка</option>
-                            <option value="">Мобильная разработка</option>
-                            <option value="">Фриланс</option>
-                            <option value="">Алгоритмы</option>
-                            <option value="">Тестирование IT систем</option>
-                            <option value="">Разработка игр</option>
-                            <option value="">Дизайн и юзабилити</option>
-                            <option value="">Искуственный интелект</option>
-                            <option value="">Машинное обучение</option>
+                            <%
+                                categories.forEach(category => {
+                            %>
+                                <option value=""><%= category.name %></option>  
+                            <%
+                                })
+                            %>
                         </select>
                     </fieldset>
                     <fieldset class="fieldset-new-blog">

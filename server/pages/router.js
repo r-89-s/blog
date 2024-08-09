@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const Categories = require('../Categories/Categories')
 
-router.get('/', (req, res) => {
-    res.render("index")
+router.get('/', async (req, res) => {
+    const allCategories = await Categories.find()
+    res.render("index", {categories: allCategories})
 })
 
 router.get('/login', (req, res) => {
@@ -21,12 +23,14 @@ router.get('/admin', (req, res) => {
     res.render("adminProfile")
 })
 
-router.get('/new', (req, res) => {
-    res.render("newBlog")
+router.get('/new', async (req, res) => {
+    const allCategories = await Categories.find()
+    res.render("newBlog", {categories: allCategories})
 })
 
-router.get('/edit', (req, res) => {
-    res.render("editBlog")
+router.get('/edit', async (req, res) => {
+    const allCategories = await Categories.find()
+    res.render("editBlog", {categories: allCategories})
 })
 
 module.exports = router
