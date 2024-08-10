@@ -3,6 +3,7 @@ const router = express.Router()
 const Categories = require('../Categories/Categories')
 
 router.get('/', async (req, res) => {
+    console.log(req.user, 'main page')
     const allCategories = await Categories.find()
     res.render("index", {categories: allCategories})
 })
@@ -16,10 +17,12 @@ router.get('/register', (req, res) => {
 })
 
 router.get('/profile', (req, res) => {
+    console.log(req.user, 'profile page')
     res.render("profile")
 })
 
 router.get('/admin', (req, res) => {
+    console.log(req.user, 'admin page')
     res.render("adminProfile")
 })
 

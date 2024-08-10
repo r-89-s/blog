@@ -27,11 +27,14 @@ const signUp = async (req, res) => {
             }).save()
             res.redirect('/login')
         });
-    })
+    }) 
+}
 
-    
+const signIn = (req, res) => {
+    res.redirect('/profile')
 }
 
 module.exports = {
-    signUp
+    signUp,
+    signIn
 }
