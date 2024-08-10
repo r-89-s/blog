@@ -53,29 +53,27 @@
     margin-bottom: 32px;
 }
 
-.edit-btn {
+.profile-card a {
+    text-decoration: none;
     width: 160px;
     height: 50px;
     border-radius: 4px;
     font-size: 16px;
     font-weight: 500;
     border: none;
-    background-color: #00A2DC;
     color: white;
     cursor: pointer;
+    padding-top: 17px;
+    box-sizing: border-box;
+}
+
+.edit-btn {
+    background-color: #00A2DC;
     margin-bottom: 30px;
 }
 
 .logout-btn {
-    width: 160px;
-    height: 50px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 500;
-    border: none;
     background-color: lightgray;
-    color: white;
-    cursor: pointer;
     margin-bottom: 35px;
 }
 
