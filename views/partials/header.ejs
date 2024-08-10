@@ -12,7 +12,17 @@
         </button>
     </div>
     <div class="head-buttons">
-        <a href="/register">Регистрация</a>
-        <a href="/login">Вход</a>
+        <%
+            if(user._id){
+        %>
+             <a href="/profile/<%= user._id %>">Профиль</a>   
+        <%
+            }else{
+        %>
+            <a href="/register">Регистрация</a>
+            <a href="/login">Вход</a
+        <%
+            }
+        %>
     </div>
 </header>
