@@ -14,76 +14,45 @@
                     <h2>Блоги по программированию</h2>
                     <p>Популярные и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
                 </div>
-                <div class="main-blog-card">
-                    <div class="blog-image">
-                        <img src="/images/image 1.png" alt="">
+                <%
+                    blogs.forEach(item => {
+                %>
+                    <div class="main-blog-card">
+                        <div class="blog-image">
+                            <img src="<%= item.blogImg %>" alt="">
+                        </div>
+                        <div class="blog-title">
+                            <h3><%= item.title %></h3>
+                            <p><%= item.description %></p>
+                        </div>
+                        <div class="blog-info">
+                            <div class="blog-card-date">
+                                <img src="/images/icons/calendar.png" alt="">
+                                <p><%= item.blogDate %></p>
+                            </div>
+                            <div class="blog-card-view">
+                                <img src="/images/icons/eye.png" alt="">
+                                <p>21</p>
+                            </div>
+                            <div class="blog-card-comments">
+                                <img src="/images/icons/message.svg" alt="">
+                                <p>4</p>
+                            </div>
+                            <div class="blog-card-category">
+                                <img src="/images/icons/forums.svg" alt="">
+                                <p><%= item.category.name %></p>
+                            </div>
+                            <div class="blog-card-author">
+                                <img src="/images/icons/author.svg" alt="">
+                                <p><%= item.author.full_name %></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="blog-title">
-                        <h3>Обзор Report Manager от Webix</h3>
-                        <p>Осень 2020 года стала плодотворным временем для специалистов Webix. </br></br>
+                <%
+                    })
+                %>
+                
 
-                        Команда Webix выпустила восьмую версию библиотеки пользовательского интерфейса Webix с двумя новыми комплексными виджетами. Первый - зто Scheduler, о котором мы подробно говорили ранее. Второй виджет - это Gantt chart в JavaScript. Подробную информацию об этом виджете Вы можете найти в статье. </br></br>
-                        
-                        Ноябрь продолжает тенденцию, и мы спешим поделиться с Вами новым комплексным виджетом Report Manager. Давайте рассмотрим ег</p>
-                    </div>
-                    <div class="blog-info">
-                        <div class="blog-card-date">
-                            <img src="/images/icons/calendar.png" alt="">
-                            <p>26.06.2020</p>
-                        </div>
-                        <div class="blog-card-view">
-                            <img src="/images/icons/eye.png" alt="">
-                            <p>21</p>
-                        </div>
-                        <div class="blog-card-comments">
-                            <img src="/images/icons/message.svg" alt="">
-                            <p>4</p>
-                        </div>
-                        <div class="blog-card-category">
-                            <img src="/images/icons/forums.svg" alt="">
-                            <p>Веб-разработка</p>
-                        </div>
-                        <div class="blog-card-author">
-                            <img src="/images/icons/author.svg" alt="">
-                            <p>Nast1289</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="main-blog-card">
-                    <div class="blog-image">
-                        <img src="/images/image 2.png" alt="">
-                    </div>
-                    <div class="blog-title">
-                        <h3>Разработчики изобрели методологию высокоскоростного программирования</h3>
-                        <p>Осень 2020 года стала плодотворным временем для специалистов Webix. </br></br>
-
-                        Команда Webix выпустила восьмую версию библиотеки пользовательского интерфейса Webix с двумя новыми комплексными виджетами. Первый - зто Scheduler, о котором мы подробно говорили ранее. Второй виджет - это Gantt chart в JavaScript. Подробную информацию об этом виджете Вы можете найти в статье. </br></br>
-                        
-                        Ноябрь продолжает тенденцию, и мы спешим поделиться с Вами новым комплексным виджетом Report Manager. Давайте рассмотрим ег</p>
-                    </div>
-                    <div class="blog-info">
-                        <div class="blog-card-date">
-                            <img src="/images/icons/calendar.png" alt="">
-                            <p>26.06.2020</p>
-                        </div>
-                        <div class="blog-card-view">
-                            <img src="/images/icons/eye.png" alt="">
-                            <p>21</p>
-                        </div>
-                        <div class="blog-card-comments">
-                            <img src="/images/icons/message.svg" alt="">
-                            <p>4</p>
-                        </div>
-                        <div class="blog-card-category">
-                            <img src="/images/icons/forums.svg" alt="">
-                            <p>Веб-разработка</p>
-                        </div>
-                        <div class="blog-card-author">
-                            <img src="/images/icons/author.svg" alt="">
-                            <p>Nast1289</p>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="categories">
                 <h3>Категории</h3>

@@ -9,18 +9,27 @@
     <div class="container">
         <div class="main">
             <div class="main-content main-content-new-blog">
-                <form action="" class="form-new-blog">
+                <form action="/api/blogs/edit" method="post" class="form-new-blog" enctype="multipart/form-data">
                     <h2>Редактировать блог</h2>
+                    <fieldset>
+                        <input type="hidden" value="<%= blog._id %>" name="id">
+                    </fieldset>
                     <fieldset class="fieldset-new-blog">
-                        <input type="text" placeholder="Введите заголовок блога" name="title">
+                        <input type="text" value="<%= blog.title %>" placeholder="Введите заголовок блога" name="title">
                     </fieldset>
                     <fieldset class="fieldset-new-blog">
                         <select name="category" id="">
                             <%
                                 categories.forEach(category => {
+                                    if(category.id == blog.category){
                             %>
-                                <option value=""><%= category.name %></option>  
+                                    <option value="<%= category._id %>" selected><%= category.name %></option>
                             <%
+                                    }else{
+                            %>
+                                    <option value="<%= category._id %>"><%= category.name %></option>
+                            <%
+                                    }
                                 })
                             %>
                         </select>
@@ -32,7 +41,7 @@
                         </label>
                     </fieldset>
                     <fieldset class="fieldset-new-blog">
-                        <input type="text" placeholder="Введите описание блога" name="description">
+                        <input type="text" value="<%= blog.description %>" placeholder="Введите описание блога" name="description">
                     </fieldset>
                     <button type="submit">Сохранить</button>
                 </form>
