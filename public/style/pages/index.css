@@ -7,19 +7,20 @@
 }
 
 .main-content {
-    width: 80%;
+    width: 70%;
     background-color: white;
     padding: 40px 65px;
     height: fit-content;
 }
 
 .categories {
-    width: calc(20% - 24px);
+    width: calc(30% - 24px);
     display: flex;
     flex-direction: column;
     background-color: white;
     padding: 43px 30px 21px 30px;
     height: fit-content;
+    box-sizing: border-box;
 }
 
 .categories h3 {

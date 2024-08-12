@@ -24,7 +24,7 @@
 }
 
 .profile-card {
-    width: calc(20% - 24px);
+    width: calc(30% - 24px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,6 +32,7 @@
     padding: 43px 30px 21px 30px;
     height: fit-content;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .profile-card img {

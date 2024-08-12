@@ -13,9 +13,13 @@
     </div>
     <div class="head-buttons">
         <%
-            if(user._id){
+            if(user._id && user.isAdmin){
         %>
-             <a href="/profile/<%= user._id %>">Профиль</a>   
+            <a href="/admin/<%= user._id %>">Профиль</a>
+        <%
+            }else if(user._id && !user.isAdmin){
+        %>
+            <a href="/profile/<%= user._id %>">Профиль</a>
         <%
             }else{
         %>

@@ -22,12 +22,10 @@ passport.use(new LocalStrategy(
 ))
 
 passport.serializeUser(function(user, done){
-    console.log(user)
     done(null, user._id)
 })
 
 passport.deserializeUser(function(id, done){
-    console.log(id)
     User.findById(id).then((user, err) => {
         done(err, user)
     })

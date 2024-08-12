@@ -113,14 +113,27 @@
                     </div>
                 </div>
             </div>
-            <div class="profile-card">
-                <img src="/images/profile-img.png" alt="">
-                <h4>Елнур Сеитжанов</h4>
-                <p>В основном пишу про веб - разработку, на React & Redux</p>
-                <p>285 постов за все время</p>
-                <button class="edit-btn">Редактировать</button>
-                <button class="logout-btn">Выход</button>
+            <div style="width: calc(30% - 24px);">
+                <div class="profile-card" style="width: 100%;">
+                    <img src="/images/profile-img.png" alt="">
+                    <h4><%= user.full_name %></h4>
+                    <p>В основном пишу про веб - разработку, на React & Redux</p>
+                    <p>285 постов за все время</p>
+                    <a class="edit-btn">Редактировать</a>
+                    <a href="/api/signout" class="logout-btn">Выход</a>
+                </div>
+                <div class="categories" style="width: 100%; margin-top: 30px;">
+                    <h3>Категории</h3>
+                    <%
+                        categories.forEach(category => {
+                    %>
+                        <a href="/<%= category.key %>"><%= category.name %></a>
+                    <% 
+                        }) 
+                    %>
+                </div>
             </div>
+            
         </div>
     </div>
     <script src="/js/more-menu.js"></script>
