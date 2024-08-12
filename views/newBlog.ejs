@@ -9,7 +9,7 @@
     <div class="container">
         <div class="main">
             <div class="main-content main-content-new-blog">
-                <form action="" class="form-new-blog">
+                <form action="/api/new" method="post" class="form-new-blog" enctype="multipart/form-data">
                     <h2>Новый блог</h2>
                     <fieldset class="fieldset-new-blog">
                         <input type="text" placeholder="Введите заголовок блога" name="title">
@@ -19,7 +19,7 @@
                             <%
                                 categories.forEach(category => {
                             %>
-                                <option value=""><%= category.name %></option>
+                                <option value="<%= category._id %>"><%= category.name %></option>
                             <%
                                 })
                             %>
