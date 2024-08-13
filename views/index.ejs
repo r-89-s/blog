@@ -46,6 +46,23 @@
                                 <img src="/images/icons/author.svg" alt="">
                                 <p><%= item.author.full_name %></p>
                             </div>
+                            <%
+                                if(user.toRead && user.toRead.includes(item._id)){
+                            %>
+                            <div class="blog-card-bookmark" onclick="deleteFromToRead('<%= item._id %>')">
+                                <img src="/images/icons/bookmark-fill.png" alt="" style="width: 24px;">
+                                <p>Сохранено</p>
+                            </div>
+                            <%
+                                }else{
+                            %>
+                            <div class="blog-card-bookmark" onclick="saveToRead('<%= item._id %>')">
+                                <img src="/images/icons/bookmark.png" alt="" style="width: 24px;">
+                                <p>Сохранить</p>
+                            </div>
+                            <%
+                                }
+                            %>
                         </div>
                     </div>
                 <%
@@ -66,5 +83,6 @@
             </div>
         </div>
     </div>
+    <%- include('partials/scripts.ejs') %>
 </body>
 </html>

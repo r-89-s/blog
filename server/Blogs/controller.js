@@ -1,4 +1,5 @@
 const Blog = require('./Blog')
+const User = require('../auth/User')
 let currentDate = new Date()
 let dayMonthYear = `${currentDate.getDate()}.${currentDate.getMonth() + 1}.${currentDate.getFullYear()}`
 const fs = require('fs')
@@ -63,22 +64,41 @@ const deleteBlog = async(req, res) => {
     }
 }
 
+const saveBlog = async(req, res) => {
+    if(req.user && req.body.id){
+        const user = await User.findById(req.user.id)
+        const findBlog = user.toRead.filter(item => item._id == req.body.id)
+        user.toRead = []
+        if(findBlog.length == 0){
+            // user.toRead.push(req.body.id)
+            user.save()
+            res.send('Blog succesfuly saved')
+        }else{
+            res.send('Blog already saved')
+        }
+    }
+    
+}
+
+const deleteFromToRead = async(req, res) => {
+    if(req.user && req.params.id){
+        const user = await User.findById(req.user.id)
+        for(let i = 0; i < user.toRead.length; i++){
+            if(user.toRead[i] == req.params.id){
+                user.toRead.splice(i , 1)
+                user.save()
+                res.send('Succesfuly deleted')
+            }
+            
+        }
+        // res.send('Data not found')
+    }
+}
+
 module.exports = {
     createBlog,
     editBlog,
-    deleteBlog
+    deleteBlog,
+    saveBlog,
+    deleteFromToRead
 }
-
-
-
-
-// file: {
-//     fieldname: 'blogImg',
-//     originalname: '72x108.webp',
-//     encoding: '7bit',
-//     mimetype: 'image/webp',
-//     destination: './public/images/blogs',
-//     filename: '1723458035081.webp',
-//     path: 'public\\images\\blogs\\1723458035081.webp',
-//     size: 3188
-//   },

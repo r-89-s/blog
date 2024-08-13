@@ -13,21 +13,22 @@
                     <h2>Мои блоги</h2>
                 </div>
                 <%
-                    blogs.forEach(item => {
+                    if(user.toRead.length > 0){
+                        user.toRead.forEach(blog => {
                 %>
                 <div class="main-blog-card">
                     <div class="blog-image">
-                        <img src="<%= item.blogImg %>" alt="">
+                        <img src="<%= blog.blogImg %>" alt="">
                     </div>
                     <div class="blog-title">
-                        <h3><%= item.title %></h3>
+                        <h3><%= blog.title %></h3>
                                                
-                        <p><%= item.description %></p>
+                        <p><%= blog.description %></p>
                     </div>
                     <div class="blog-info">
                         <div class="blog-card-date">
                             <img src="/images/icons/calendar.png" alt="">
-                            <p><%= item.blogDate %></p>
+                            <p><%= blog.blogDate %></p>
                         </div>
                         <div class="blog-card-view">
                             <img src="/images/icons/eye.png" alt="">
@@ -39,16 +40,21 @@
                         </div>
                         <div class="blog-card-category">
                             <img src="/images/icons/forums.svg" alt="">
-                            <p><%= item.category.name %></p>
+                            <p><%= blog.category.name %></p>
                         </div>
                         <div class="blog-card-author">
                             <img src="/images/icons/author.svg" alt="">
-                            <p><%= item.author.full_name %></p>
+                            <p><%= blog.author.full_name %></p>
+                        </div>
+                        <div class="blog-card-bookmark" onclick="deleteFromToRead('<%= blog._id %>')">
+                            <img src="/images/icons/bookmark-fill.png" alt="" style="width: 24px;">
+                            <p>Сохранено</p>
                         </div>
                     </div>
                 </div>
                 <%
-                    })
+                        })
+                    }
                 %>
             </div>
             <div style="width: calc(30% - 24px);">
@@ -80,5 +86,6 @@
             
         </div>
     </div>
+    <%- include('partials/scripts.ejs') %>
 </body>
 </html>

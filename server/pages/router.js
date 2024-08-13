@@ -7,7 +7,12 @@ const Blog = require('../Blogs/Blog')
 router.get('/', async (req, res) => {
     const allCategories = await Categories.find()
     const blogs = await Blog.find().populate('category').populate('author')
-    res.render("index", {categories: allCategories, user: req.user ? req.user: {}, blogs})
+    const user = req.user ? await User.findById(req.user._id)
+    // .populate('toRead').
+    // populate({path: 'toRead', populate: {path: 'category'}}).
+    // populate({path: 'toRead', populate: {path: 'author'}})
+     : {}
+    res.render("index", {categories: allCategories, user, blogs})
 })
 
 router.get('/login', (req, res) => {
@@ -20,10 +25,11 @@ router.get('/register', (req, res) => {
 
 router.get('/profile/:id', async (req, res) => {
     const allCategories = await Categories.find()
-    const blogs = await Blog.find().populate('category').populate('author')
-    const user = await User.findById(req.params.id)
+    const user = await User.findById(req.params.id).populate('toRead').
+    populate({path: 'toRead', populate: {path: 'category'}}).
+    populate({path: 'toRead', populate: {path: 'author'}})
     if(user){
-        res.render("profile", {categories: allCategories, user: user, loginUser: req.user, blogs})
+        res.render("profile", {categories: allCategories, user, loginUser: req.user})
     }else{
         res.redirect('/not-found')
     }

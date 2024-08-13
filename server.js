@@ -10,6 +10,7 @@ require('./server/config/passport')
 
 app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded())
+app.use(express.json())
 app.use(session({
     name: 'blog.session',
     secret: 'keyboard cat',
