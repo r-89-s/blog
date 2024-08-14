@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+    <div class="container">
+        <div class="main">
+            <div class="main-content">
+                <div class="main-title">
+                    <h2>Блоги по программированию</h2>
+                    <p>Популярные и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
+                </div>
+                <div class="main-blog-card" style="border-bottom: none;">
+                    <div class="blog-image">
+                        <img src="/images/image 1.png" alt="">
+                    </div>
+                    <div class="blog-info">
+                        <div class="blog-card-date">
+                            <img src="/images/icons/calendar.png" alt="">
+                            <p>26.06.2020</p>
+                        </div>
+                        <div class="blog-card-view">
+                            <img src="/images/icons/eye.png" alt="">
+                            <p>21</p>
+                        </div>
+                        <div class="blog-card-comments">
+                            <img src="/images/icons/message.svg" alt="">
+                            <p>4</p>
+                        </div>
+                        <div class="blog-card-category">
+                            <img src="/images/icons/forums.svg" alt="">
+                            <p>Веб-разработка</p>
+                        </div>
+                        <div class="blog-card-author">
+                            <img src="/images/icons/author.svg" alt="">
+                            <p>Nast1289</p>
+                        </div>
+                        
+                        <div class="blog-card-bookmark" onclick="saveToRead('')">
+                            <img src="/images/icons/bookmark.png" alt="" style="width: 24px;">
+                            <p>Сохранить</p>
+                        </div>
+                        
+                    </div>
+                    <div class="blog-title">
+                        <h3>Обзор Report Manager от Webix</h3>
+                        <p>Осень 2020 года стала плодотворным временем для специалистов Webix. 
+
+                        Команда Webix выпустила восьмую версию библиотеки пользовательского интерфейса Webix с двумя новыми комплексными виджетами. Первый - зто Scheduler, о котором мы подробно говорили ранее. Второй виджет - это Gantt chart в JavaScript. Подробную информацию об этом виджете Вы можете найти в статье. 
+                        
+                        Ноябрь продолжает тенденцию, и мы спешим поделиться с Вами новым комплексным виджетом Report Manager. Давайте рассмотрим его подробнее.</p>
+                    </div>
+                    <div class="blog-comments">
+                        <h4 class="blog-comment-title">2 комментария</h4>
+                        <div class="blog-comment">
+                            <div class="blog-comment-author">
+                                <img src="/images/profile-img.png" alt="">
+                                <h4>Елнур Сеитжанов</h4>
+                            </div>
+                            <p>В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные виджеты - это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.</p>
+                        </div>
+                        <div class="blog-comment">
+                            <div class="blog-comment-author">
+                                <img src="/images/profile-img.png" alt="">
+                                <h4>Елнур Сеитжанов</h4>
+                            </div>
+                            <p>В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные виджеты - это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.</p>
+                        </div>
+                        
+                        <input type="text" placeholder="Введит текст комментария" class="blog-comment-input">
+                        <button type="submit">Отправить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="categories">
+                <h3>Категории</h3>
+                <%
+                    categories.forEach(category => {
+                %>
+                    <a href="/<%= category.key %>"><%= category.name %></a>
+                <% 
+                    }) 
+                %>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/scripts.ejs') %>
+</body>
+</html>

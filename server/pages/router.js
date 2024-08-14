@@ -57,4 +57,9 @@ router.get('/not-found', (req, res) => {
     res.render("notFound")
 })
 
+router.get('/detail', async (req, res) => {
+    const allCategories = await Categories.find()
+    res.render("detail", {categories: allCategories, user: {}, blogs: {}})
+})
+
 module.exports = router

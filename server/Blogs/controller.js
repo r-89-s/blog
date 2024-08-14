@@ -68,9 +68,9 @@ const saveBlog = async(req, res) => {
     if(req.user && req.body.id){
         const user = await User.findById(req.user.id)
         const findBlog = user.toRead.filter(item => item._id == req.body.id)
-        user.toRead = []
+        // user.toRead = []
         if(findBlog.length == 0){
-            // user.toRead.push(req.body.id)
+            user.toRead.push(req.body.id)
             user.save()
             res.send('Blog succesfuly saved')
         }else{
