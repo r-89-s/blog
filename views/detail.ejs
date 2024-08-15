@@ -35,7 +35,7 @@
                             <p><%= blog.author.full_name %></p>
                         </div>
                         <%
-                            if(user.toRead.includes(blog._id)){
+                            if(user && user.toRead && user.toRead.includes(blog._id)){
                         %>
                         <div class="blog-card-bookmark" onclick="deleteFromToRead('<%= blog._id %>')">
                             <img src="/images/icons/bookmark-fill.png" alt="" style="width: 24px;">
@@ -72,12 +72,20 @@
                             </div>
                             <p>В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные виджеты - это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.</p>
                         </div>
-                        
-                        <input type="text" placeholder="Введит текст комментария" class="blog-comment-input">
-                        <button type="submit">Отправить</button>
+                        <%
+                            if(user && user._id){
+                        %>
+                        <form action="">
+                            <textarea name="text" placeholder="Введит текст комментария" class="blog-comment-input" rows="2"></textarea>
+                            <button type="submit">Отправить</button>
+                        </form>
+                        <%
+                            }else{
+                        %>
                         <div class="blog-comment-login">
                             <p>Чтобы оставить комментарий <a href="/register">зарегистрируйтесь</a>, или <a href="/login">войдите</a> в аккаунт.</p>
                         </div>
+                        <%}%>
                     </div>
                 </div>
             </div>
