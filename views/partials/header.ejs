@@ -4,13 +4,13 @@
             <h1>Decode Blog</h1>
         </a>
     </div>
-    <div class="head-menu">
-        <input type="text" placeholder="Поиск по блогам">
+    <form class="head-menu">
+        <input type="text" placeholder="Поиск по блогам" name="search">
         <button class="head-search">
             <img src="/images/icons/search.png" alt="">
             <p>Найти</p>
         </button>
-    </div>
+    </form>
     <div class="head-buttons">
         <%
             if(user._id && user.isAdmin){
