@@ -22,7 +22,7 @@
                             <img src="<%= item.blogImg %>" alt="">
                         </div>
                         <div class="blog-title">
-                            <h3><%= item.title %></h3>
+                            <a href="/detail/<%= item._id %>"><%= item.title %></a>
                             <p><%= item.description %></p>
                         </div>
                         <div class="blog-info">
@@ -68,7 +68,15 @@
                 <%
                     })
                 %>
-                
+                <div class="pages">
+                    <%
+                        for(let i = 0; i < pages; i++){
+                    %>
+                            <a href="?page=<%= i %>"><%= i + 1 %></a>
+                    <%
+                        }
+                    %>
+                </div>
 
             </div>
             <div class="categories">
@@ -76,7 +84,7 @@
                 <%
                     categories.forEach(category => {
                 %>
-                    <a href="/<%= category.key %>"><%= category.name %></a>
+                    <a href="?category=<%= category.key %>"><%= category.name %></a>
                 <% 
                     }) 
                 %>

@@ -5,14 +5,21 @@ const User = require('../auth/User')
 const Blog = require('../Blogs/Blog')
 
 router.get('/', async (req, res) => {
+    const options = {}
+    const categories = await Categories.findOne({key : req.query.category})
+    if(categories){
+        options.category = categories._id
+    }
+    let page = 0
+    const limit = 3
+    if(req.query.page && req.query.page > 0){
+        page = req.query.page
+    }
+    const totalBlogs = await Blog.countDocuments()
     const allCategories = await Categories.find()
-    const blogs = await Blog.find().populate('category').populate('author')
-    const user = req.user ? await User.findById(req.user._id)
-    // .populate('toRead').
-    // populate({path: 'toRead', populate: {path: 'category'}}).
-    // populate({path: 'toRead', populate: {path: 'author'}})
-     : {}
-    res.render("index", {categories: allCategories, user, blogs})
+    const blogs = await Blog.find(options).skip(page * limit).limit(limit).populate('category').populate('author')
+    const user = req.user ? await User.findById(req.user._id) : {}
+    res.render("index", {categories: allCategories, user, blogs, pages: Math.ceil(totalBlogs / limit)})
 })
 
 router.get('/login', (req, res) => {
@@ -57,9 +64,11 @@ router.get('/not-found', (req, res) => {
     res.render("notFound")
 })
 
-router.get('/detail', async (req, res) => {
+router.get('/detail/:id', async (req, res) => {
     const allCategories = await Categories.find()
-    res.render("detail", {categories: allCategories, user: {}, blogs: {}})
+    const blog = await Blog.findById(req.params.id).populate('category').populate('author')
+    const user = await User.findById(req.params.id)
+    res.render("detail", {categories: allCategories, user: req.user ? req.user: {}, blog: blog})
 })
 
 module.exports = router
