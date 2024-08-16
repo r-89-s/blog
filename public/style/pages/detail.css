@@ -41,6 +41,12 @@
     font-weight: 400;
 }
 
+.blog-comment p:last-child {
+    font-size: 12px;
+    font-weight: 400;
+    color: gray;
+}
+
 .blog-comment-input {
     width: 100%;
     font-size: 16px;
