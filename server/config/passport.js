@@ -5,18 +5,6 @@ const LocalStrategy = require('passport-local')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const GitHubStrategy = require('passport-github2').Strategy
 
-//google
-//client ID
-//835052626651-qi9on9hnv8jqm8d7knodbeg9ma27uef6.apps.googleusercontent.com
-//Client secret
-//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
-
-//github
-// Client ID
-// Ov23lidoB284pm9NHpou
-// Client secret
-// 94635813eceb693fbbd39e7a577ff9e6d1f32598
-
 passport.use(new LocalStrategy(
     {
         usernameField: 'email'
