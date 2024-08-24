@@ -31,7 +31,6 @@ passport.use(new GoogleStrategy({
   },
   async function(accessToken, refreshToken, profile, cb) {
     const user = await User.find({googleId: profile.id})
-    console.log(profile)
     const newUser = await new User({
         googleId: profile.id,
         full_name: profile.displayName,
@@ -49,7 +48,6 @@ passport.use(new GitHubStrategy({
   },
   async function(accessToken, refreshToken, profile, cb) {
     const user = await User.find({githubId: profile.id})
-    console.log(profile)
     const newUser = await new User({
         githubId: profile.id,
         full_name: profile.username,
